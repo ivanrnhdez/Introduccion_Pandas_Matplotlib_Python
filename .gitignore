@@ -1,0 +1,34 @@
+# Ignorar el entorno virtual
+panmatenv/
+
+# Archivos de configuración específicos del sistema
+*.pyc
+*.pyo
+__pycache__/
+
+# Archivos de Jupyter Notebook con checkpoints
+.ipynb_checkpoints/
+
+# Archivos generados por sistemas operativos
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+
+# Archivos de salida o intermedios
+outputs/
+*.png
+*.jpg
+
+# Archivos relacionados con entornos de desarrollo
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de dependencias compiladas
+*.so
+*.dll
+*.dylib
+*.bin
