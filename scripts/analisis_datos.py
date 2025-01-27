@@ -33,20 +33,24 @@ def analisis_datos_calificaciones(df):
     print("\n=== Análisis por Asignaturas ===\n")
     print(df_asignaturas.to_string(index=False, float_format="%.2f"))
 
+    return {
+        "dataframe_asignaturas": df_asignaturas
+    }
 
 
-def analisis_avanzado_calificaciones(df):
+
+def analisis_datos_asignaturas(df):
     
     # Filtrar solo los alumnos que se presentaron (calificación != -1)
     presentados = df[df['Calificacion'] != -1]
 
-    # 1. Distribución de géneros por asignatura
+    # Distribución de géneros por asignatura
     distribucion_genero = presentados.groupby(['Asignatura', 'Genero']).size().unstack(fill_value=0)
 
-    # 2. Top 3 mejores calificaciones por asignatura
+    # Top 3 mejores calificaciones por asignatura
     top_estudiantes = presentados.sort_values(['Asignatura', 'Calificacion'], ascending=[True, False]).groupby('Asignatura').head(3)
 
-    # 3. Varianza y desviación estándar de las calificaciones por asignatura
+    # Varianza y desviación estándar de las calificaciones por asignatura
     estadisticas_calificaciones = presentados.groupby('Asignatura')['Calificacion'].agg(['var', 'std']).fillna(0)
 
     # Imprimir resultados
@@ -62,6 +66,65 @@ def analisis_avanzado_calificaciones(df):
 
     print("\n=== Varianza y Desviación Estándar de Calificaciones por Asignatura ===\n")
     print(estadisticas_calificaciones.to_string(float_format="%.2f"))
+
+    return {
+        "distribucion_genero": distribucion_genero,
+        "top_estudiantes": top_estudiantes,
+        "estadisticas_calificaciones": estadisticas_calificaciones
+    }
+
+
+
+def exploracion_datos(df):
+    
+    # Estadísticas descriptivas básicas
+    print("\n=== Estadísticas Descriptivas de Edad y Calificación ===\n")
+    estadisticas = df[['Calificacion', 'Edad']].describe().transpose()
+    print(estadisticas.to_string(float_format="%.2f"))
+    
+    # Matriz de correlación (Calificación y Edad)
+    print("\n=== Matriz de Correlación ===\n")
+    correlacion = df[['Calificacion', 'Edad']].corr()
+    print(correlacion.to_string(float_format="%.2f"))
+    
+    # Distribución de calificaciones por rangos
+    print("\n=== Distribución de Calificaciones (por Rangos) ===\n")
+    bins = [0, 5, 7, 9, 10]
+    etiquetas = ['Insuficiente', 'Aprobado', 'Notable', 'Sobresaliente']
+    df['Rango'] = pd.cut(df['Calificacion'], bins=bins, labels=etiquetas, right=False)
+    distribucion = df['Rango'].value_counts().sort_index()
+    print(distribucion.to_string())
+    
+    # Media, mediana y std de calificaciones agrupadas por género
+    print("\n=== Análisis por Género ===\n")
+    genero_stats = df.groupby('Genero')['Calificacion'].agg(['mean', 'median', 'std', 'count']).fillna(0)
+    genero_stats.rename(columns={
+        'mean': 'Media',
+        'median': 'Mediana',
+        'std': 'Desv Estándar',
+        'count': 'Cantidad'
+    }, inplace=True)
+    print(genero_stats.to_string(float_format="%.2f"))
+    
+    # Estadísticas por asignatura
+    print("\n=== Estadísticas por Asignatura ===\n")
+    asignatura_stats = df.groupby('Asignatura')['Calificacion'].agg(['mean', 'median', 'var', 'std', 'count']).fillna(0)
+    asignatura_stats.rename(columns={
+        'mean': 'Media',
+        'median': 'Mediana',
+        'var': 'Varianza',
+        'std': 'Desv Estándar',
+        'count': 'Cantidad'
+    }, inplace=True)
+    print(asignatura_stats.to_string(float_format="%.2f"))
+    
+    return {
+        "estadisticas_descriptivas": estadisticas,
+        "correlacion": correlacion,
+        "distribucion_rangos": distribucion,
+        "genero_stats": genero_stats,
+        "asignatura_stats": asignatura_stats
+    }
 
 
 
