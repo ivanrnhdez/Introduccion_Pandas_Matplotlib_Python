@@ -26,7 +26,7 @@ def combinar_datos(df1,df2,path):
     df = df.rename(columns={"ID_x": "ID_Alumno", "ID_y": "ID_Calificacion"})
 
     # Ordenar por 'Asignatura' y luego por 'Calificación'
-    df = df.sort_values(by=['Materia', 'Calificacion'], ascending=[True, False])
+    df = df.sort_values(by=['Asignatura', 'Calificacion'], ascending=[True, False])
 
     # Generamos nuevos IDs que comienzan en 1
     df.insert(0, 'ID', range(1, len(df) + 1))
