@@ -1,4 +1,4 @@
-ID,ID_Alumno,ID_Calificacion,Nombre,Edad,Genero,Ciudad,Materia,Calificacion
+ID,ID_Alumno,ID_Calificacion,Nombre,Edad,Genero,Ciudad,Asignatura,Calificacion
 1,6,6,Diego,24.0,M,Zaragoza,Filosofía,5.0
 2,14,14,Pablo,25.0,M,Zaragoza,Filosofía,4.5
 3,18,18,Sara,21.0,F,Sevilla,Física,8.5

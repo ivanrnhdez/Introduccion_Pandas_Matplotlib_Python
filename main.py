@@ -1,7 +1,7 @@
 import os
 from scripts.cargar_datos import cargar_datos_sin_duplicados
 from scripts.tratar_datos import tratar_datos_alumnos, tratar_datos_calificaciones, combinar_datos
-from scripts.analisis_datos import analisis_datos_calificaciones
+from scripts.analisis_datos import analisis_datos_calificaciones, analisis_avanzado_calificaciones
 
 
 def main():
@@ -27,11 +27,12 @@ def main():
 
 
     while True:
-        print("\n=== Menú Principal ===")
+        print("\n=== Menú Principal ===\n")
         print("1. Ver análisis de calificaciones")
+        print("2. Ver análisis avanzado de calificaciones")
         print("0. Salir")
 
-        opcion = input("Elige una opción: ")
+        opcion = input("\nElige una opción: ")
 
         while not opcion.isdigit():  # Verifica si no es un número
             print("Error: Debes ingresar un número válido.")
@@ -41,13 +42,18 @@ def main():
 
         if(opcion == 1):
             analisis_datos_calificaciones(df_calificaciones)
+
+        elif(opcion == 2):
+            analisis_avanzado_calificaciones(df_combinado)
+
         elif (opcion == 0):
             print("Saliendo del programa. ¡Hasta luego!")
             break
+
         else:
             print("Error: Debes ingresar un número válido.")
 
-
+        input("\nPresiona Enter para volver al menú...")  # Pausa para continuar
 
 
 
