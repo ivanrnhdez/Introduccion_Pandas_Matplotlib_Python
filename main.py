@@ -2,6 +2,7 @@ import os
 from scripts.cargar_datos import cargar_datos_sin_duplicados
 from scripts.tratar_datos import tratar_datos_alumnos, tratar_datos_calificaciones, combinar_datos
 from scripts.analisis_datos import analisis_datos_calificaciones, analisis_datos_asignaturas, exploracion_datos
+from scripts.visualizacion_datos import grafica_medias_asignaturas, grafico_combinado_por_ciudad
 
 
 def main():
@@ -31,6 +32,8 @@ def main():
         print("1. Ver análisis de calificaciones")
         print("2. Ver análisis de asignaturas")
         print("3. Ver exploración de datos (EDA)")
+        print("4. Ver gráfica de la media de las asignaturas")
+        print("5. Ver gráfica combinada por ciudad")
         print("0. Salir")
 
         opcion = input("\nElige una opción: ")
@@ -49,6 +52,12 @@ def main():
 
         elif(opcion == 3):
             exploracion_datos(df_combinado)
+
+        elif(opcion == 4):
+            grafica_medias_asignaturas(df_calificaciones)
+
+        elif(opcion == 5):
+            grafico_combinado_por_ciudad(df_combinado)
 
         elif (opcion == 0):
             print("Saliendo del programa. ¡Hasta luego!")

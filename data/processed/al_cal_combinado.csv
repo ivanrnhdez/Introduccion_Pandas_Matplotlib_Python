@@ -10,7 +10,6 @@ ID,ID_Alumno,ID_Calificacion,Nombre,Edad,Genero,Ciudad,Asignatura,Calificacion
 9,5,5,Sofía,20.0,F,Madrid,Lengua,9.5
 10,9,9,Elena,23.0,F,Valencia,Lengua,6.0
 11,1,1,Ana,20.0,F,Madrid,Matemáticas,8.5
-12,12,1,Ana,,F,Madrid,Matemáticas,8.5
-13,8,8,Juan,22.0,M,Granada,Matemáticas,8.0
-14,3,3,Lucía,21.0,F,Sevilla,Química,9.0
-15,14,19,Pablo,25.0,M,Zaragoza,Química,6.8
+12,8,8,Juan,22.0,M,Granada,Matemáticas,8.0
+13,3,3,Lucía,21.0,F,Sevilla,Química,9.0
+14,14,19,Pablo,25.0,M,Zaragoza,Química,6.8
