@@ -5,6 +5,9 @@ def tratar_datos_alumnos(df):
     # Eliminamos las filas que no tengan nombre o ciudad
     df = df.dropna(subset = ['Nombre', 'Ciudad'] )
 
+    # Eliminamos duplicados por nombre, manteniendo solo la primera instancia
+    df = df.drop_duplicates(subset='Nombre', keep='first')
+
     return df
 
 def tratar_datos_calificaciones(df):
@@ -14,6 +17,9 @@ def tratar_datos_calificaciones(df):
 
     # Eliminamos los valores nulos restantes
     df = df.dropna()
+
+    # Eliminamos duplicados
+    df = df.drop_duplicates()
 
     return df
 
