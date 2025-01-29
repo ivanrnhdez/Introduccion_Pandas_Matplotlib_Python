@@ -3,6 +3,7 @@ from scripts.cargar_datos import cargar_datos_sin_duplicados
 from scripts.tratar_datos import tratar_datos_alumnos, tratar_datos_calificaciones, combinar_datos
 from scripts.analisis_datos import analisis_datos_calificaciones, analisis_datos_asignaturas, exploracion_datos
 from scripts.visualizacion_datos import grafica_medias_asignaturas, grafico_combinado_por_ciudad, generar_graficos_edad_calificacion_genero
+from scripts.generar_pdf import generar_pdf 
 
 
 def main():
@@ -35,6 +36,7 @@ def main():
         print("4. Ver gráfica de la media de las asignaturas")
         print("5. Ver gráfica combinada por ciudad")
         print("6. Generar gráficos (Edad vs Calificación y Género)")
+        print("7. Generar análisis en PDF")
         print("0. Salir")
 
         opcion = input("\nElige una opción: ")
@@ -62,6 +64,9 @@ def main():
 
         elif(opcion == 6):
             generar_graficos_edad_calificacion_genero(df_combinado)
+
+        elif(opcion == 7):
+            generar_pdf()
 
         elif (opcion == 0):
             print("Saliendo del programa. ¡Hasta luego!")
