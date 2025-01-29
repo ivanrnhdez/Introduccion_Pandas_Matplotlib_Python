@@ -88,7 +88,7 @@ def generar_graficos_edad_calificacion_genero(df):
     axes[0].set_xlabel("Edad")
     axes[0].set_ylabel("Calificación")
 
-    # Gráfico de torta: Distribución por Género
+    # Gráfico circular: Distribución por Género
     df['Genero'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=['lightblue', 'pink'], ax=axes[1])
     axes[1].set_title("Distribución de Género")
     axes[1].set_ylabel("")  # Quitar etiqueta del eje Y
