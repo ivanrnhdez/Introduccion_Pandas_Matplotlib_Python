@@ -16,11 +16,6 @@ Thumbs.db
 # Archivos de logs
 *.log
 
-# Archivos de salida o intermedios
-outputs/
-*.png
-*.jpg
-
 # Archivos relacionados con entornos de desarrollo
 .vscode/
 .idea/
