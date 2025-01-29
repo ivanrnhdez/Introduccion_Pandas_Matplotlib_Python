@@ -1,4 +1,6 @@
+import os
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 def grafica_medias_asignaturas(df):
@@ -60,4 +62,43 @@ def grafico_combinado_por_ciudad(df):
     # Ajustar diseño
     plt.tight_layout()
     plt.show()
+
+
+def generar_graficos_edad_calificacion_genero(df):
+
+    # Filtrar solo las filas con calificaciones válidas (ignorar -1)
+    presentados = df[df['Calificacion'] != -1]
+    
+    # Buscar la ruta de los graficos
+    ruta_carpeta = "outputs/graficos/"
+
+    # Crear figura y subgráficos
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+    # Gráfico de dispersión: Edad vs Calificación
+    axes[0].scatter(presentados['Edad'], presentados['Calificacion'], color='blue', alpha=0.5)
+
+    # Ajustar una línea de regresión (tendencia)
+    coef = np.polyfit(presentados['Edad'], presentados['Calificacion'], 1)  # Ajuste lineal
+    poly1d_fn = np.poly1d(coef)  # Función de la recta
+    axes[0].plot(presentados['Edad'], poly1d_fn(presentados['Edad']), color='black', label="Tendencia")
+
+    # Etiquetas y título
+    axes[0].set_title("Relación entre Edad y Calificación")
+    axes[0].set_xlabel("Edad")
+    axes[0].set_ylabel("Calificación")
+
+    # Gráfico de torta: Distribución por Género
+    df['Genero'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=['lightblue', 'pink'], ax=axes[1])
+    axes[1].set_title("Distribución de Género")
+    axes[1].set_ylabel("")  # Quitar etiqueta del eje Y
+
+    # Guardar la imagen
+    ruta_imagen = os.path.join(ruta_carpeta, "grafico_edad_calificacion_genero.png")
+    plt.tight_layout()
+    plt.savefig(ruta_imagen, dpi=300)
+    plt.close()
+
+    print(f"Gráficos guardados en: {ruta_imagen}")
+
 
