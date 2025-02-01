@@ -12,7 +12,6 @@ pip install -r requirements.txt
 ### Ejecución
 Una vez instaladas las dependencias, puedes ejecutar el script principal con:
 python main.py
-Esto permitirá realizar el análisis de datos y generar las visualizaciones correspondientes.
 
 ### Licencia
 Este proyecto es de código abierto y puede utilizarse libremente con fines educativos y de aprendizaje.
