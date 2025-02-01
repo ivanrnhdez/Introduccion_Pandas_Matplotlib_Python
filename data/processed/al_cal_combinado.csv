@@ -1,0 +1,15 @@
+ID,ID_Alumno,ID_Calificacion,Nombre,Edad,Genero,Ciudad,Asignatura,Calificacion
+1,6,6,Diego,24.0,M,Zaragoza,Filosofía,5.0
+2,14,14,Pablo,25.0,M,Zaragoza,Filosofía,4.5
+3,18,18,Sara,21.0,F,Sevilla,Física,8.5
+4,2,2,Carlos,22.0,M,Barcelona,Física,7.0
+5,7,7,María,21.0,F,Málaga,Física,-1.0
+6,4,4,Pedro,23.0,M,Valencia,Historia,6.5
+7,13,13,Laura,21.0,F,Sevilla,Historia,6.0
+8,20,16,Javier,22.0,M,Madrid,Historia,-1.0
+9,5,5,Sofía,20.0,F,Madrid,Lengua,9.5
+10,9,9,Elena,23.0,F,Valencia,Lengua,6.0
+11,1,1,Ana,20.0,F,Madrid,Matemáticas,8.5
+12,8,8,Juan,22.0,M,Granada,Matemáticas,8.0
+13,3,3,Lucía,21.0,F,Sevilla,Química,9.0
+14,14,19,Pablo,25.0,M,Zaragoza,Química,6.8
